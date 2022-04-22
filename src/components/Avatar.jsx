@@ -1,6 +1,6 @@
-export const Avatar = ({ avatarURL }) => {
+export const Avatar = ({ avatarURL, cname }) => {
 	return (
-		<div>
+		<div className={cname}>
 			<img src={avatarURL} alt='User avatar' />
 		</div>
 	);

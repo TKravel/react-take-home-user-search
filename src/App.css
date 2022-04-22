@@ -109,3 +109,144 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+.App {
+  min-height: 100vh;
+  height: 100%;
+  max-width: 100vw;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: grey;
+  min-height: 100vh;
+}
+
+.student-profile-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  background-color: white;
+  border-radius: 10px;
+  height: 70vh;
+  width: 50%;
+  overflow-y: scroll;
+}
+
+.profile-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  border-bottom: 1px solid black;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  padding: 1rem;
+  width: 100%;
+}
+
+.profile-card .profile-card-avatar {
+  border: 1px solid black;
+  border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  margin: 1rem 1rem auto 1rem;
+  overflow: hidden;
+}
+
+.profile-card .profile-card-avatar img {
+  height: 100%;
+  width: 100%;
+}
+
+.profile-card .profile-card-details h1 {
+  font-size: 1.5rem;
+}
+
+.profile-card .profile-card-details ul {
+  font-size: .8rem;
+  padding-left: 1rem;
+}
+
+.profile-card-test-scores {
+  display: none;
+}
+
+.scores-visible {
+  display: block;
+}
+
+.expand-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: inherit;
+  border: none;
+  height: 16px;
+  width: 16px;
+}
+
+.expand-button .plus-icon-wrapper {
+  position: relative;
+}
+
+.vert-minus-icon {
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  opacity: 1;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+.hor-minus-icon {
+  height: 16px;
+  width: 16px;
+}
+
+.fade-expand-button {
+  opacity: 0;
+}
+/*# sourceMappingURL=App.css.map */

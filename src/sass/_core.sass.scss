@@ -1,3 +1,20 @@
+// mixins
+@mixin flexRow($justify){
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: center;
+}
+
+@mixin flexColumn($justify){
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: center;
+}
+
 // css reset
 *,
 *:before,

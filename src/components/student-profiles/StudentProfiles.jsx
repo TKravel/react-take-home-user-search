@@ -5,7 +5,7 @@ export const StudentProfiles = () => {
 	const studentsArr = useSelector((state) => state.studentData.students);
 	console.log(studentsArr);
 	return (
-		<div>
+		<div className='student-profile-container'>
 			{studentsArr !== undefined &&
 				studentsArr.map((item) => {
 					return (
