@@ -1,25 +1,32 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { StudentProfiles } from './components/student-profiles/StudentProfiles';
+import { fetchStudentData } from './features/studentsSlice';
+import { useDispatch } from 'react-redux';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(fetchStudentData());
+		// fetch('https://api.hatchways.io/assessment/students')
+		// 	.then((response) => response.json())
+		// 	.then((data) => {
+		// 		setData(data);
+		// 	})
+		// 	.catch((err) => {
+		// 		if (err) {
+		// 			console.log(err);
+		// 		}
+		// 	});
+	}, []);
+	return (
+		<div className='App'>
+			<main>
+				<StudentProfiles />
+			</main>
+		</div>
+	);
 }
 
 export default App;
