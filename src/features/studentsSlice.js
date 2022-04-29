@@ -10,6 +10,14 @@ export const fetchStudentData = createAsyncThunk(
 	}
 );
 
+export const selectTagByStudentID = (state, id) => {
+	const selectedStudent = state.studentData.students.filter((student) => {
+		return student.id === id;
+	});
+	console.log(selectedStudent);
+	return selectedStudent[0].tags;
+};
+
 const initialState = {
 	studentData: [],
 	status: 'idle',
@@ -20,18 +28,21 @@ export const studentsSlice = createSlice({
 	name: 'studentsData',
 	initialState,
 	reducers: {
-		increment: (state) => {
-			// Redux Toolkit allows us to write "mutating" logic in reducers. It
-			// doesn't actually mutate the state because it uses the Immer library,
-			// which detects changes to a "draft state" and produces a brand new
-			// immutable state based off those changes
-			state.value += 1;
-		},
-		decrement: (state) => {
-			state.value -= 1;
-		},
-		incrementByAmount: (state, action) => {
-			state.value += action.payload;
+		addNewTag: (state, action) => {
+			state.studentData.students.forEach((student, index) => {
+				if (action.payload.id == student.id) {
+					if (student.tags === undefined) {
+						return (state.studentData.students[index].tags = [
+							action.payload.tag,
+						]);
+					} else {
+						return (state.studentData.students[index].tags = [
+							...student.tags,
+							action.payload.tag,
+						]);
+					}
+				}
+			});
 		},
 	},
 	extraReducers(builder) {
@@ -50,8 +61,6 @@ export const studentsSlice = createSlice({
 	},
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } =
-	studentsSlice.actions;
+export const { addNewTag } = studentsSlice.actions;
 
 export default studentsSlice.reducer;

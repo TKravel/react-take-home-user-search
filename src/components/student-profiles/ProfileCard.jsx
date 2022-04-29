@@ -2,6 +2,8 @@ import { Avatar } from '../Avatar';
 import { calculateAverage } from '../../utils/mathHelpers';
 import { MinusIcon } from '../../svgs/MinusIcon';
 import { useState } from 'react';
+import { TestScores } from './TestScores';
+import { TagComponent } from './TagComponent';
 
 export const ProfileCard = ({ student }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
@@ -11,6 +13,7 @@ export const ProfileCard = ({ student }) => {
 			return !prevValue;
 		});
 	};
+
 	return (
 		<div className='profile-card'>
 			<Avatar avatarURL={student.pic} cname='profile-card-avatar' />
@@ -22,22 +25,13 @@ export const ProfileCard = ({ student }) => {
 					<li>Skill: {student.skill}</li>
 					<li>Average: {calculateAverage(student.grades)}%</li>
 				</ul>
-				<ul
-					className={
-						isExpanded
-							? 'profile-card-test-scores scores-visible'
-							: 'profile-card-test-scores'
-					}
+				<TestScores grades={student.grades} expanded={isExpanded} />
+				<TagComponent studentID={student.id} />
+				<button
+					className='expand-button'
+					onClick={toggleExpand}
+					aria-label='View test scores'
 				>
-					{student.grades.map((testScore, index) => {
-						return (
-							<li key={`test-score-${index + 1}`}>
-								Test {index + 1}: <span>{testScore}%</span>
-							</li>
-						);
-					})}
-				</ul>
-				<button className='expand-button' onClick={toggleExpand}>
 					<div className='plus-icon-wrapper'>
 						<MinusIcon
 							cname={

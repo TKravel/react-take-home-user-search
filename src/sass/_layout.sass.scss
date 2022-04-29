@@ -7,6 +7,6 @@
 main {
     @include flexColumn($justify: center);
     
-    background-color: grey;
+    background-color: $light-grey;
     min-height: 100vh;
 }

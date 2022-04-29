@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap");
 *,
 *:before,
 *:after {
@@ -80,6 +81,7 @@ main {
 
 body {
   line-height: 1.1;
+  font-family: 'Raleway', sans-serif;
 }
 
 ol,
@@ -132,7 +134,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: grey;
+  background-color: lightgrey;
   min-height: 100vh;
 }
 
@@ -154,11 +156,39 @@ main {
           align-items: center;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  position: relative;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 8px;
   height: 70vh;
   width: 50%;
   overflow-y: scroll;
+}
+
+.student-profile-filter-controls {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  background-color: white;
+  padding: 0 .5rem;
+  width: 100%;
+  z-index: 100;
+}
+
+.student-profile-text-input {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid darkgrey;
+  margin: .4rem 0;
+  outline: none;
+  padding: .2rem;
+  width: 100%;
+  -webkit-transition: border-bottom 500ms;
+  transition: border-bottom 500ms;
+}
+
+.student-profile-text-input:focus {
+  border-bottom: 1px solid black;
 }
 
 .profile-card {
@@ -201,19 +231,59 @@ main {
 
 .profile-card .profile-card-details h1 {
   font-size: 1.5rem;
+  font-weight: 700;
 }
 
 .profile-card .profile-card-details ul {
   font-size: .8rem;
+  margin-top: 1rem;
   padding-left: 1rem;
 }
 
-.profile-card-test-scores {
-  display: none;
+.tag-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 125px;
 }
 
-.scores-visible {
-  display: block;
+.tag-list .tag-list-item {
+  background-color: darkgrey;
+  border-radius: 5px;
+  margin: .2rem;
+  padding: .5rem;
+}
+
+.student-tag-input {
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid darkgrey;
+  margin: .4rem 0 .4rem 1rem;
+  outline: none;
+  padding: .2rem;
+  width: 100%;
+  -webkit-transition: border-bottom 500ms;
+  transition: border-bottom 500ms;
+}
+
+.student-tag-input:focus {
+  border-bottom: 1px solid black;
+}
+
+.profile-card-test-scores span {
+  margin-left: 1rem;
 }
 
 .expand-button {
@@ -222,8 +292,8 @@ main {
   right: 1rem;
   background-color: inherit;
   border: none;
-  height: 16px;
-  width: 16px;
+  height: 18px;
+  width: 18px;
 }
 
 .expand-button .plus-icon-wrapper {
@@ -232,8 +302,9 @@ main {
 
 .vert-minus-icon {
   position: absolute;
-  height: 16px;
-  width: 16px;
+  fill: darkgrey;
+  height: 18px;
+  width: 18px;
   opacity: 1;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
@@ -242,8 +313,9 @@ main {
 }
 
 .hor-minus-icon {
-  height: 16px;
-  width: 16px;
+  fill: darkgrey;
+  height: 18px;
+  width: 18px;
 }
 
 .fade-expand-button {

@@ -2,12 +2,39 @@
     @include flexColumn($justify: flex-start);
     flex-wrap: nowrap;
 
+    position: relative;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 8px;
     height: 70vh;
     width: 50%;
     overflow-y: scroll;
 }
+
+.student-profile-filter-controls {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: $white;
+    padding: 0 .5rem;
+    width: 100%;
+    z-index: 100;
+}
+
+.student-profile-text-input {
+    background-color: $white;
+    border: none;
+    border-bottom: 1px solid $med-grey;
+    margin: .4rem 0;
+    outline: none;
+    padding: .2rem;
+    width: 100%;
+    transition: border-bottom 500ms;
+}
+
+.student-profile-text-input:focus {
+    border-bottom: 1px solid $black;
+}
+
 .profile-card {
     @include flexRow($justify: flex-start);
     position: relative;
@@ -31,25 +58,50 @@
     & .profile-card-details {
         & h1 {
             font-size: 1.5rem;
+            font-weight: 700;
         }
         & ul {
             font-size: .8rem;
+            margin-top: 1rem;
             padding-left: 1rem;
         }
-        & li {
-            // margin: 0 .3rem;
-        }
-
     }
 
 }
 
+.tag-list {
+    @include flexRow($justify: flex-start);
+
+    width: 125px;
+    & .tag-list-item {
+        background-color: $med-grey;
+        border-radius: 5px;
+        margin: .2rem;
+        padding: .5rem;
+    }
+}
+
+.student-tag-input {
+    background-color: $white;
+    border: none;
+    border-bottom: 1px solid $med-grey;
+    margin: .4rem 0 .4rem 1rem;
+    outline: none;
+    padding: .2rem;
+    width: 100%;
+    transition: border-bottom 500ms;
+}
+
+.student-tag-input:focus {
+    border-bottom: 1px solid $black;
+}
+
 .profile-card-test-scores{
-    display: none;
+    & span {
+        margin-left: 1rem;
+    }
 }
-.scores-visible{
-    display: block;
-}
+
 
 .expand-button {
     position: absolute;
@@ -57,8 +109,8 @@
     right: 1rem;
     background-color: inherit;
     border: none;
-    height: 16px;
-    width: 16px;
+    height: 18px;
+    width: 18px;
     & .plus-icon-wrapper {
         position: relative;
     }
@@ -66,15 +118,17 @@
 
 .vert-minus-icon {
     position: absolute;
-    height: 16px;
-    width: 16px;
+    fill: $med-grey;
+    height: 18px;
+    width: 18px;
     opacity: 1;
     transform: rotate(90deg);
     transition: opacity 500ms;
 }
 .hor-minus-icon {
-    height: 16px;
-    width: 16px;
+    fill: $med-grey;
+    height: 18px;
+    width: 18px;
 }
 .fade-expand-button {
     opacity: 0;

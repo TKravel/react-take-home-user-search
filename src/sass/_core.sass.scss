@@ -1,3 +1,16 @@
+// typography
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+
+// variables
+
+$white: white;
+$black: black;
+
+$light-grey: lightgrey;
+$med-grey: darkgrey;
+$dark-grey: grey;
+
 // mixins
 @mixin flexRow($justify){
     display: flex;
@@ -94,7 +107,7 @@ main {
 
 body {
 	line-height: 1.1;
-	// font-family: 'Lato', sans-serif;
+	font-family: 'Raleway', sans-serif;
 }
 
 ol,
