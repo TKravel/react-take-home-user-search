@@ -11,23 +11,14 @@ function App() {
 
 	useEffect(() => {
 		dispatch(fetchStudentData());
-		// fetch('https://api.hatchways.io/assessment/students')
-		// 	.then((response) => response.json())
-		// 	.then((data) => {
-		// 		setData(data);
-		// 	})
-		// 	.catch((err) => {
-		// 		if (err) {
-		// 			console.log(err);
-		// 		}
-		// 	});
-	}, []);
+	}, [dispatch]);
 
 	useEffect(() => {
 		if (studentData !== undefined && studentData.length !== 0) {
 			setIsLoading(false);
 		}
 	}, [studentData]);
+
 	return (
 		<div className='App'>
 			<main>{!isLoading && <StudentProfiles />}</main>

@@ -28,7 +28,34 @@ $dark-grey: grey;
     align-items: center;
 }
 
+// mixin media queries
+
+@mixin mobile-screen {
+	@media screen and (max-width: 499px){
+		@content;
+	}
+}
+
+@mixin sm-screen {
+	@media screen and (min-width: 500px) and (max-width: 749px){
+		@content;
+	}
+}
+
+@mixin md-screen {
+	@media screen and (min-width: 750px) and (max-width: 849px){
+		@content;
+	}
+}
+
+@mixin lg-screen {
+	@media screen and (min-width: 850px){
+		@content;
+	}
+}
+
 // css reset
+
 *,
 *:before,
 *:after {
@@ -90,7 +117,7 @@ video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
+	font-family: 'Raleway', sans-serif;
 	vertical-align: baseline;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -107,7 +134,6 @@ main {
 
 body {
 	line-height: 1.1;
-	font-family: 'Raleway', sans-serif;
 }
 
 ol,

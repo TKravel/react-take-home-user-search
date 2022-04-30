@@ -36,11 +36,11 @@ export const ProfileCard = ({ student }) => {
 						<MinusIcon
 							cname={
 								isExpanded
-									? 'vert-minus-icon fade-expand-button'
-									: 'vert-minus-icon'
+									? 'vertical-bar-icon fade-expand-button'
+									: 'vertical-bar-icon'
 							}
 						/>
-						<MinusIcon cname='hor-minus-icon' />
+						<MinusIcon cname='horizontal-bar-icon' />
 					</div>
 				</button>
 			</div>

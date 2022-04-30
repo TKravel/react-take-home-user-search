@@ -14,7 +14,6 @@ export const selectTagByStudentID = (state, id) => {
 	const selectedStudent = state.studentData.students.filter((student) => {
 		return student.id === id;
 	});
-	console.log(selectedStudent);
 	return selectedStudent[0].tags;
 };
 
@@ -30,7 +29,7 @@ export const studentsSlice = createSlice({
 	reducers: {
 		addNewTag: (state, action) => {
 			state.studentData.students.forEach((student, index) => {
-				if (action.payload.id == student.id) {
+				if (action.payload.id === student.id) {
 					if (student.tags === undefined) {
 						return (state.studentData.students[index].tags = [
 							action.payload.tag,
@@ -47,7 +46,7 @@ export const studentsSlice = createSlice({
 	},
 	extraReducers(builder) {
 		builder
-			.addCase(fetchStudentData.pending, (state, action) => {
+			.addCase(fetchStudentData.pending, (state) => {
 				state.status = 'loading';
 			})
 			.addCase(fetchStudentData.fulfilled, (state, action) => {

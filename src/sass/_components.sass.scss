@@ -1,27 +1,34 @@
-.student-profile-container {
+// main conatiner ----------------
+.student-search-component {
     @include flexColumn($justify: flex-start);
     flex-wrap: nowrap;
 
-    position: relative;
     background-color: white;
     border-radius: 8px;
     height: 70vh;
-    width: 50%;
-    overflow-y: scroll;
+    width: 550px;
+    overflow-y: hidden;
+    @include md-screen {
+        width: 500px;
+    }
+    @include sm-screen {
+        width: 410px;
+    }
+    @include mobile-screen {
+        height: 80vh;
+        width: 90vw;
+    }
 }
 
+// form inputs -----------------
 .student-profile-filter-controls {
-    position: sticky;
-    top: 0;
-    left: 0;
-    background-color: $white;
+    @include flexColumn($justify: flex-start);
     padding: 0 .5rem;
     width: 100%;
     z-index: 100;
 }
 
 .student-profile-text-input {
-    background-color: $white;
     border: none;
     border-bottom: 1px solid $med-grey;
     margin: .4rem 0;
@@ -35,16 +42,46 @@
     border-bottom: 1px solid $black;
 }
 
+// student display container ----------------
+.student-display-container {
+    @include flexColumn($justify: flex-start);
+    flex-wrap: nowrap;
+    position: relative;
+    overflow-y: overlay;
+    width: 100%;
+}
+
+.student-display-container::-webkit-scrollbar {
+    background-color: transparent;
+    width: 6px;
+    z-index: 1000;
+}
+
+.student-display-container::-webkit-scrollbar-thumb {
+    background-color: $med-grey;
+    border-radius: 3px;
+    height: 20%;
+    width: 6px;
+    opacity: 0;
+    transition: all 500ms;
+    z-index: 1000;
+}
+
+.student-display-container:hover::-webkit-scrollbar-thumb {
+    opacity: 1;
+}
+
+// student profile card ----------------
 .profile-card {
     @include flexRow($justify: flex-start);
     position: relative;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid $light-grey;
     flex-wrap: nowrap;
     padding: 1rem;
     width: 100%;
 
     & .profile-card-avatar {
-        border: 1px solid black;
+        border: 1px solid $light-grey;
         border-radius: 100%;
         height: 50px;
         width: 50px;
@@ -54,11 +91,17 @@
             height: 100%;
             width: 100%;
         }
+        @include mobile-screen {
+            margin: .5rem .5rem auto .5rem;
+        }
     }
     & .profile-card-details {
         & h1 {
             font-size: 1.5rem;
             font-weight: 700;
+            @include mobile-screen{
+                font-size: 1.3rem;
+            }
         }
         & ul {
             font-size: .8rem;
@@ -74,7 +117,7 @@
 
     width: 125px;
     & .tag-list-item {
-        background-color: $med-grey;
+        background-color: $light-grey;
         border-radius: 5px;
         margin: .2rem;
         padding: .5rem;
@@ -88,7 +131,7 @@
     margin: .4rem 0 .4rem 1rem;
     outline: none;
     padding: .2rem;
-    width: 100%;
+    width: 8rem;
     transition: border-bottom 500ms;
 }
 
@@ -109,14 +152,14 @@
     right: 1rem;
     background-color: inherit;
     border: none;
-    height: 18px;
-    width: 18px;
+    height: 24px;
+    width: 24px;
     & .plus-icon-wrapper {
         position: relative;
     }
 }
 
-.vert-minus-icon {
+.vertical-bar-icon {
     position: absolute;
     fill: $med-grey;
     height: 18px;
@@ -125,11 +168,13 @@
     transform: rotate(90deg);
     transition: opacity 500ms;
 }
-.hor-minus-icon {
+
+.horizontal-bar-icon {
     fill: $med-grey;
     height: 18px;
     width: 18px;
 }
+
 .fade-expand-button {
     opacity: 0;
 }
