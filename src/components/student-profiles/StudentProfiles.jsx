@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { TextInput } from '../TextInput';
 import { setFilterConditions } from '../../utils/queryHelpers';
 
+// main container to display cards and filter inputs
 export const StudentProfiles = () => {
 	const studentsArr = useSelector((state) => state.studentData.students);
 	const [nameInputState, setNameInputState] = useState('');
@@ -18,6 +19,7 @@ export const StudentProfiles = () => {
 		}
 	};
 
+	// listen for filter input / update student list
 	useEffect(() => {
 		let queryResults = [];
 
@@ -28,6 +30,7 @@ export const StudentProfiles = () => {
 		return setSearchResults(queryResults);
 	}, [nameInputState, tagInputState, studentsArr]);
 
+	// conditionally render students depending on filters
 	return (
 		<section className='student-search-component'>
 			<form className='student-profile-filter-controls'>
@@ -48,25 +51,36 @@ export const StudentProfiles = () => {
 					type='text'
 				/>
 			</form>
-			<div className='student-display-container'>
+			<ul
+				className='student-display-container'
+				data-testid='student-list'
+			>
 				{nameInputState.length > 0 || tagInputState.length > 0
 					? searchResults.map((item) => {
 							return (
-								<ProfileCard
+								<li
 									key={`student${item.id}`}
-									student={item}
-								/>
+									className='student-display-container-item'
+									data-testid='student-list-item'
+								>
+									<ProfileCard student={item} />
+								</li>
 							);
 					  })
-					: studentsArr.map((item) => {
+					: studentsArr !== undefined
+					? studentsArr.map((item) => {
 							return (
-								<ProfileCard
+								<li
 									key={`student${item.id}`}
-									student={item}
-								/>
+									className='student-display-container-item'
+									data-testid='student-list-item'
+								>
+									<ProfileCard student={item} />
+								</li>
 							);
-					  })}
-			</div>
+					  })
+					: null}
+			</ul>
 		</section>
 	);
 };

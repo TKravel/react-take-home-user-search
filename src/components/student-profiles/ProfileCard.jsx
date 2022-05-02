@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { TestScores } from './TestScores';
 import { TagComponent } from './TagComponent';
 
+// student profile card
 export const ProfileCard = ({ student }) => {
 	const [isExpanded, setIsExpanded] = useState(false);
 

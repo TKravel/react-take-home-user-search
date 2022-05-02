@@ -4,13 +4,14 @@ A take home test I am currently working on. To save the integrity of the test I 
 
 ## Functionality
 
-Pull users from an API, display users, filter search results by using one or two user inputer modifiers.
+Pull users from an API, display users, filter search results by using one or two user input modifiers.
 
 ### Tech I chose
 
 -   ReactJS hooks
 -   React-redux
 -   Redux-toolkit
+-   React testing library / userEvents / MSW
 -   SASS
 
 [LIVE DEMO](https://626cb65cf0345b28f92c5ca4--thriving-tapioca-b7e41a.netlify.app/)

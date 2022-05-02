@@ -10,8 +10,6 @@ export const TagComponent = ({ studentID }) => {
 	const tags = useSelector((state) => selectTagsByID(state, studentID));
 	const [tagInput, setTagInput] = useState('');
 
-	// console.log(tags);
-
 	const handleTagInputState = (e) => {
 		setTagInput(e.target.value);
 	};

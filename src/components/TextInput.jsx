@@ -1,3 +1,4 @@
+// text input component
 export const TextInput = ({
 	id,
 	cname,

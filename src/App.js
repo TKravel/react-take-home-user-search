@@ -9,10 +9,12 @@ function App() {
 	const studentData = useSelector((state) => state.studentData.students);
 	const [isLoading, setIsLoading] = useState(true);
 
+	// dispatch createAsyncThunk on app load
 	useEffect(() => {
 		dispatch(fetchStudentData());
 	}, [dispatch]);
 
+	// check if store has been populated and ready for display
 	useEffect(() => {
 		if (studentData !== undefined && studentData.length !== 0) {
 			setIsLoading(false);
@@ -20,7 +22,7 @@ function App() {
 	}, [studentData]);
 
 	return (
-		<div className='App'>
+		<div className='App' data-testid='app-rendered'>
 			<main>{!isLoading && <StudentProfiles />}</main>
 		</div>
 	);

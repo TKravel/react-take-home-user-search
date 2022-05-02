@@ -1,3 +1,4 @@
+// compare two strings to see if one contains the other
 const containsStr = (data, searchStr) => {
 	if (data === undefined) {
 		return;
@@ -5,6 +6,7 @@ const containsStr = (data, searchStr) => {
 
 	searchStr = searchStr.toLowerCase();
 
+	// check if provided student data is a tag list (array)
 	if (Array.isArray(data)) {
 		let matchResults = false;
 		for (let value of data) {
@@ -18,6 +20,7 @@ const containsStr = (data, searchStr) => {
 	}
 };
 
+// set filter by name, tag, or both
 export const setFilterConditions = (
 	nameInputValue,
 	tagInputValue,

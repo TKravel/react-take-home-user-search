@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
+// fetch student data from api / add to store
 export const fetchStudentData = createAsyncThunk(
 	'studentsData/fetchStudentData',
 	async () => {
@@ -10,6 +11,7 @@ export const fetchStudentData = createAsyncThunk(
 	}
 );
 
+// return tags for student by student ID
 export const selectTagByStudentID = (state, id) => {
 	const selectedStudent = state.studentData.students.filter((student) => {
 		return student.id === id;
