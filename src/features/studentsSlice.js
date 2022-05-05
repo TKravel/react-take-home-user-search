@@ -13,10 +13,10 @@ export const fetchStudentData = createAsyncThunk(
 
 // return tags for student by student ID
 export const selectTagByStudentID = (state, id) => {
-	const selectedStudent = state.studentData.students.filter((student) => {
+	const selectedStudent = state.studentData.students.find((student) => {
 		return student.id === id;
 	});
-	return selectedStudent[0].tags;
+	return selectedStudent.tags;
 };
 
 const initialState = {

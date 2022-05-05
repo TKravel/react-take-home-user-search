@@ -28,19 +28,16 @@ export const setFilterConditions = (
 ) => {
 	const nameQuery = nameInputValue.length > 0 ? true : false;
 	const tagQuery = tagInputValue.length > 0 ? true : false;
+	const studentFullName = `${studentObj.firstName} ${studentObj.lastName}`;
 
+	console.log(studentFullName);
 	if (nameQuery && tagQuery) {
 		return (
-			containsStr(
-				`${studentObj.firstName} ${studentObj.lastName}`,
-				nameInputValue
-			) && containsStr(studentObj.tags, tagInputValue)
+			containsStr(studentFullName, nameInputValue) &&
+			containsStr(studentObj.tags, tagInputValue)
 		);
 	} else if (nameQuery && !tagQuery) {
-		return containsStr(
-			`${studentObj.firstName} ${studentObj.lastName}`,
-			nameInputValue
-		);
+		return containsStr(studentFullName, nameInputValue);
 	} else if (!nameQuery && tagQuery) {
 		return containsStr(studentObj.tags, tagInputValue);
 	}
