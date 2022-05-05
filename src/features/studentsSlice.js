@@ -37,10 +37,12 @@ export const studentsSlice = createSlice({
 		addNewTag: (state, action) => {
 			state.studentData.students.forEach((student, index) => {
 				if (action.payload.id === student.id) {
+					// if no tag property on state obj only add 1 tag
 					if (student.tags === undefined) {
 						return (state.studentData.students[index].tags = [
 							action.payload.tag,
 						]);
+						// else spread prev tags and append new tag
 					} else {
 						return (state.studentData.students[index].tags = [
 							...student.tags,
