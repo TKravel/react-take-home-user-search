@@ -31,12 +31,16 @@ export const setFilterConditions = (
 
 	if (nameQuery && tagQuery) {
 		return (
-			(containsStr(studentObj.firstName, nameInputValue) ||
-				containsStr(studentObj.lastName, nameInputValue)) &&
-			containsStr(studentObj.tags, tagInputValue)
+			containsStr(
+				`${studentObj.firstName} ${studentObj.lastName}`,
+				nameInputValue
+			) && containsStr(studentObj.tags, tagInputValue)
 		);
 	} else if (nameQuery && !tagQuery) {
-		return containsStr(studentObj.firstName, nameInputValue);
+		return containsStr(
+			`${studentObj.firstName} ${studentObj.lastName}`,
+			nameInputValue
+		);
 	} else if (!nameQuery && tagQuery) {
 		return containsStr(studentObj.tags, tagInputValue);
 	}
