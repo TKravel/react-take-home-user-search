@@ -4,10 +4,15 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 export const fetchStudentData = createAsyncThunk(
 	'studentsData/fetchStudentData',
 	async () => {
-		const res = fetch('https://api.hatchways.io/assessment/students').then(
-			(response) => response.json()
-		);
-		return res;
+		try {
+			const res = await fetch(
+				'https://api.hatchways.io/assessment/students'
+			);
+			const students = res.json();
+			return students;
+		} catch (err) {
+			console.log(err);
+		}
 	}
 );
 
